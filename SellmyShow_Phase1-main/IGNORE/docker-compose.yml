@@ -1,0 +1,31 @@
+version: '3.9'
+services:
+  backend:
+    build: ./ticket_seller_backend
+    container_name: flask_backend
+    expose:
+      - "5000"
+    environment:
+      - FLASK_ENV=production
+    volumes:
+      - ./uploads:/app/uploads
+    
+
+
+  frontend:
+    build: ./ticket_seller_frontend
+    container_name: react_frontend
+    depends_on:
+      - backend
+
+  nginx:
+    image: nginx:alpine
+    container_name: nginx_proxy
+    ports:
+      - "80:80"
+    volumes:
+      - ./ticket_seller_frontend/default.conf:/etc/nginx/conf.d/default.conf 
+      - ./ticket_seller_frontend/build:/usr/share/nginx/html   # ✅ mount React build output
+      - ./ticket_seller_backend/uploads:/app/uploads
+    depends_on:
+      - frontend

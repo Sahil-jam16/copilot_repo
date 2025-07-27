@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+:root {
+  /* BookMyShow-inspired color palette */
+  --bms-primary: #1f2937; /* Dark slate gray */
+  --bms-secondary: #dc2626; /* Red */
+  --bms-accent: #f59e0b; /* Amber */
+  --bms-success: #10b981; /* Emerald */
+  --bms-background: #f8fafc; /* Light gray */
+  --bms-surface: #ffffff; /* White */
+  --bms-text-primary: #111827; /* Dark gray */
+  --bms-text-secondary: #6b7280; /* Medium gray */
+  --bms-border: #e5e7eb; /* Light border */
+  --bms-shadow: rgba(0, 0, 0, 0.1);
+  
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+  
+  color: var(--bms-text-primary);
+  background-color: var(--bms-background);
+  
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Button hover effects */
+.btn-primary {
+  background: linear-gradient(135deg, var(--bms-secondary) 0%, #ef4444 100%);
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(220, 38, 38, 0.3);
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, var(--bms-primary) 0%, #374151 100%);
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(31, 41, 55, 0.3);
+}
+
+/* Card hover effects */
+.ticket-card {
+  transition: all 0.3s ease;
+  background: var(--bms-surface);
+  border: 1px solid var(--bms-border);
+  box-shadow: 0 4px 6px var(--bms-shadow);
+}
+
+.ticket-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  border-color: var(--bms-secondary);
+}
+
+/* Loading animations */
+@keyframes shimmer {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 400% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--bms-secondary) 0%, var(--bms-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Focus styles for accessibility */
+button:focus,
+input:focus,
+select:focus {
+  outline: 2px solid var(--bms-secondary);
+  outline-offset: 2px;
+}
